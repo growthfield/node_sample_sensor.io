@@ -154,6 +154,8 @@ function initMap() {
     iphone.fini();
   });
   socket.on('load_start', function() {
+    $('#info-map').hide();
+    $('#info-streetview').hide();
     $('#info-loading').show();
   });
   socket.on('loading', function(total, cnt, locations) {
