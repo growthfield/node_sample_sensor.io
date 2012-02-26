@@ -28,7 +28,7 @@ var iPhone = klass(function(map) {
     this.marker.setIcon(this.iconOffline)
   }
   , fini: function() {
-    this.connected = false;
+    this.online(false);
   }
   , ready: function() {
     this.readied = true;
@@ -170,7 +170,6 @@ function initMap() {
     iphone.heading(loc);
   });
   socket.on('device_state', function(state) {
-    console.log('device_state' + state);
     iphone.online('online' == state.type);
   });
   function progress(percent) {
