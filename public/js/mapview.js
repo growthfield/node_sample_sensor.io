@@ -39,10 +39,10 @@ var iPhone = klass(function(map) {
     this.render();
   }
   , online: function(flag) {
-    if (flag && !this.connected) {
+    if (flag) {
       this.marker.setIcon(this.iconOnline);
       this.connected = true;
-    } else if (!flag && this.connected) {
+    } else  {
       this.marker.setIcon(this.iconOffline);
       this.connected = false;
     }

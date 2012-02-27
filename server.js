@@ -108,6 +108,7 @@ var mapview = io.of('/mapview')
   var buff = [];
   var total = 0;
   var cnt = 0;
+  var now = new Date().getTime();
   var date = new Date(now - 6 * 60 * 60 * 1000);
   LocationModel.query()
     .where('timestamp').$gte(date)
@@ -115,7 +116,6 @@ var mapview = io.of('/mapview')
       total = num;
     });
   socket.emit('load_start');
-  var now = new Date().getTime();
   var lstream = LocationModel.query()
     .where('timestamp').$gte(date)
     .asc('timestamp')
